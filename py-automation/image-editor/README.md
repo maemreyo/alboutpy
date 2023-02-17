@@ -1,0 +1,1 @@
+# Image Editor with [Pillow](https://pillow.readthedocs.io/en/stable/installation.html)
