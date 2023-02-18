@@ -10,7 +10,9 @@
 ### The logic behind the scene
 - Bubble sort is based on various iterations, called **passes**. For the list size `N`, bubble sort will have `N - 1` passes.
 - Bubble sort compares adjacent neighbors values. If the value at a higher position is higher in value than the value at a lower position, we exchange the values. This iteration continues until we reach the end of the list.
+
 ![first_pass_bubble_sort.png](_resources/images/first_pass_bubble_sort.png)
+
 - Implementation: [Bubble Sort](bubble.py)
 
 ### Performance Analysis
@@ -22,10 +24,33 @@
 ## Insertion Sort
 - The basic idea of insertion sort is that in each iteration, we remove a data point from the data structure we have and then insert it into its right position. That is why we call this **the insertion sort algorithm**.
 - In the first iteration, we select the two data points and sort them. Then, we expand our selection and select the third data point and find its correct position, based on its value. The algorithm progresses until all the data points are moved to their correct positions.
+
 ![insertion_soft.png](_resources/images/insertion_sort.png)
+
 - Implementation: [Insertion Sort](insertion.py)
 
 ### Performance Analysis
 - If the data structure is sorted, then the insertion sort will have a linear running time `O(n)`.
 - The worst case is when each of the inner loops has to move all the elements in the list `O(n2)`.
 - Insertion can be used on small data structures. For larger data structures, insertion sort is not recommended due to quadratic average performance.
+
+## Merge Sort
+- Merge sort algorithm was developed in 1940 by _John von Neumann_.
+- The defining feature of this algorithm is that its performance is not dependent on whether the input data is sorted.
+- Two phases:
+  - _First phase (splitting)_: the algorithm keeps on dividing the data into two parts recursively, until the size of the data is less than the defined threshold.
+  - _Second phase (merging)_: the algorithm keeps on merging and processing until we get the final result.
+
+![merge_sort_phases.png](_resources/images/merge_sort_phases.png)
+
+- Implementation steps:
+  1. It divides the input list into two equal parts.
+  2. It uses recursion to split until the length of each list is 1.
+  3. It merges the sorted parts into a sorted list and returns it.
+
+- Implementation: [Merge Sort](merge.py)
+
+
+
+
+
