@@ -18,3 +18,14 @@
   - **An outer loop**: This is also called **passes**.
   - **An inner loop**: This is when the remaining unsorted elements in the list are sorted, until the highest value is bubbled to the right. The first pass will have `N-1` comparisons, the second pass will have `N-2` comparisons, and each subsequent pass will reduce the number of comparisons by one.
 - Due to two levels of looping, the worst-case runtime complexity would be `O(N2)`.
+
+## Insertion Sort
+- The basic idea of insertion sort is that in each iteration, we remove a data point from the data structure we have and then insert it into its right position. That is why we call this **the insertion sort algorithm**.
+- In the first iteration, we select the two data points and sort them. Then, we expand our selection and select the third data point and find its correct position, based on its value. The algorithm progresses until all the data points are moved to their correct positions.
+![insertion_soft.png](_resources/images/insertion_sort.png)
+- Implementation: [Insertion Sort](insertion.py)
+
+### Performance Analysis
+- If the data structure is sorted, then the insertion sort will have a linear running time `O(n)`.
+- The worst case is when each of the inner loops has to move all the elements in the list `O(n2)`.
+- Insertion can be used on small data structures. For larger data structures, insertion sort is not recommended due to quadratic average performance.
