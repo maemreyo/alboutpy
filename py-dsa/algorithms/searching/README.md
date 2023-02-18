@@ -15,3 +15,6 @@
 ## Binary Search
 - The pre-requisite of the binary search algorithm is sorted data. The algorithm iteratively divides a list into two parts and keeps a track of the lowest and highest indices until it finds the value it is looking for.
 - Implementation: [Binary Search](binary.py)
+
+### Performance Analysis
+- Binary search is so named because at each iteration, the algorithm bifurcates the data into two parts. If the data has _N_ items, it will take a maximum of _O(logN)_ steps to iterate. This means that the algorithm has an _O(logN)_ runtime.
