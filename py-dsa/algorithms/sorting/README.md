@@ -50,7 +50,23 @@
 
 - Implementation: [Merge Sort](merge.py)
 
+## Shell Sort
+- The bubble sort algorithm compares immediate neighbors and exchanges them if they are out of order. If we have a partially sorted list, bubble sort should give reasonable performance as it will exit as soon as no more swapping of elements occurs in a loop.
+- But for a totally unsorted list, sized _`N`_, you can argue that bubble sort will have to fully iterate through _`N-1`_ passes in order to get it fully sorted.
+### The logic behind the scene
+- In pass one, instead of selecting immediate neighbors, we use elements that are at a fixed gap, eventually sorting a sublist consisting of a pair of data points.
+- In pass two, it sorts sublists containing four data points.
+- In subsequent passes, the number of data points per sublist keeps on increasing and the number of sublists keeps on decreasing until we reach a situation where there is just one sublist that consists of all the data points.
+- We got a sorted list.
 
+![shell_sort.png](_resources/images/shell_sort.png)
+
+- Implementation: [Shell Sort](shell.py)
+
+### Performance Analysis
+- Shell sort is not for big data. It is used for medium-sized datasets.
+- If the data is partially in the correct order, the performance will be better.
+- In the best-case scenario, if a list is already sorted, it will only need one pass through _N_ elements to validate the order, producing a best-case performance of _`O(N)`_
 
 
 
