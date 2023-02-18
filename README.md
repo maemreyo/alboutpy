@@ -1,2 +1,2 @@
-# pypypy
+# abboutpy
 All about Python!
