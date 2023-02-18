@@ -68,5 +68,21 @@
 - If the data is partially in the correct order, the performance will be better.
 - In the best-case scenario, if a list is already sorted, it will only need one pass through _N_ elements to validate the order, producing a best-case performance of _`O(N)`_
 
+## Selection Sort
+- Selection sort is an improvement on bubble sort, where we try to minimize the total number of swaps required.
+- It is designed to make one swap for each pass (compared to `N - 1` passes of bubble sort`).
+- Instead of bubbling the largest value toward the top, we look for the largest value in each pass and move it toward the top.
+- Then after the first pass, the largest value will be at the top.
+- After the second pass, the second-largest value will be next to the top value.
+- As the algorithm progresses, the subsequent values will move to their correct place based on their values.
+- The last value will be moved after the _(N-1)th_ pass. So, selection sort takes _N-1_ passes to sort N items.
 
+![selection_sort.png](_resources/images/selection_sort.png)
+
+- Implementation: [Selection Sort](selection.py)
+
+### Performance Analysis
+- Selection sort's worst-case performance is `O(N2)`.
+- It should not be used for sorting larger datasets.
+- Selection sort is better designed algorithm than bubble sort and its average performance is better than bubble sort due to the reduction in the number of exchanges.
 
