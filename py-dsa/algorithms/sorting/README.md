@@ -86,3 +86,8 @@
 - It should not be used for sorting larger datasets.
 - Selection sort is better designed algorithm than bubble sort and its average performance is better than bubble sort due to the reduction in the number of exchanges.
 
+## Choosing a sorting algorithm
+- The choice of the right sort algorithm depends both on the _size_ and the _state_ of the current input data.
+- For small input lists that are sorted, using an advanced algorithm will introduce unnecessary complexities to the code, with a negligible improvement in performance.
+- If the data is partially sorted, we can take advantage of that by using insertion sort.
+- For larger datasets, the merge sort algorithm is the best one to use.
