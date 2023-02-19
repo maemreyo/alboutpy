@@ -51,16 +51,60 @@ Various classes of problems:
 - While in the development-and-testing phase, many algorithms use only a small sample of data. When designing an algorithm, it is important to look into the scalability aspect of the algorithms.
 
 ## Understand algorithm strategies
+- A well-designed algorithm tries to optimize the use of the available resources most efficiently by dividing the problem into smaller sub-problems wherever possible.
+- Three strategies:
+  - The divide-and-conquer strategy
+  - The dynamic programming strategy
+  - The greedy algorithm strategy
+
 ### Understanding the divide-and-conquer strategy
+- One of the strategies is to find a way to divide a larger problem into smaller problems that can be solved independently of each other. The sub-solutions produced by these sub-problems are then combined to generate the overall solution. This is called the **divide-and-conquer** strategy.
+- Mathematically, if we are designing a solution for a problem `P` witn `n` inputs that needs to process datasets `d`, we split the problem into `k` sub-problems `P1` to `Pk`. Each of the sub-problems will process a partition of the dataset `d`. Typically, we will have `P1` to `Pk` processing `d1` to `dk`.
 ### Understanding the dynamic programming strategy
+- Dynamic programming was a strategy proposed in the 1950s by Richard Bellman to optimize certain classes of algorithms.
+- It is based on an intelligence caching mechanism that tries to reuse heavy computation. This mechanism is called **memorization**.
+- Dynamic programming gives good performance benefits when the problem we are trying to solve can be divided into sub-problems. The sub-problems partly involve a calculation that is repeated in those sub-problems. The idea is to perform that calculation once and then reuse it on the other sub-problems. This is achieved using memorization, which is especially useful when in solving recursive problems that may evaluate the same inputs multiple times.
+
 ### Understanding greedy algorithms
-
-
+- Before we dive deep into, let's first define two terms:
+  - **Algorithmic overheads**: Whenever we try to find the optimal solution to a certain problem, it takes some time. As the problems that we are trying to optimize become more and more complex, the time it takes to find the optimal solution also increases. We represent algorithmic overheads with `Ωi`.
+  - **Delta from optimal**: The difference from optimal for the current solution in the `i`th iteration is called **delta from optimal** and is represented by `Δi`.
+- For complex problems, we have two possible strategies:
+  - **Strategy 1**: Spend more time finding a solution nearest to optimal so that `Δi`, is as small as possible.
+  - **Strategy 2**: Minimize the algorithmic overhead, `Ωi`. Use the quick-and-dirty approach and just use a workable solution.
+- Greedy algorithms are based on strategy 2, where we do not make an effort to find a global optimal and choose to minimize the algorithm overheads instead.
+- Using a greedy algorithm is a quick and simple strategy of finding the global optimal value for multistage problems. It is based on selecting the local optimal values without making an effort to verify whether local optimal values are globally optimal as well.
+- Generally, a greedy algorithm is defined as follows:
+  1. Let's assume that we have a dataset, `D`. In this dataset, choose an element, `k`.
+  2. Let's assume the candidate solution or certificate is `S`. Consider including `k` in the solution, `S`. If it can be included, then the solution is `Union(S, e)`.
+  3. Repeat the process until `S` is filled up or `D` is exhausted.
 
 ## Practical application - Solving the TSP
-### Using a brute-force strategy
-### Using a greedy algorithm
+_Problem_: A traveling salesman needs to visit a given list of cities to get their job done:
 
+| INPUT  | A list of `n` cities and the distances between each pair of cities, `d ij` _(1 =< i, j =< n)_ |
+|--------|-----------------------------------------------------------------------------------------------|
+| OUTPUT | The shortest tour that visits each city exactly once and returns to the initial city          |
+
+- Note that:
+    - The distances between the cities on the list are known.
+    - Each city in the given list needs to be visited _exactly_ once.
+
+_Can we generate the travel plan for the salesman?_
+
+### Using a brute-force strategy
+The brute-force strategy works as follows:
+1. Evaluate all possible tours.
+2. Choose the one for which we get the shortest distance.
+
+If the number of cities `n` is equal to `10`, then we have `362,880` possible permutations. If `n` increases, the number of permutations sharply increases and the brute-force method cannot be used. 
+### Using a greedy algorithm
+- If we use a greedy algorithm to solve the TSP, then at each step, we choose a city that seems reasonable, instead of finding a city to visit that will result in the best overall path. Whenever we need to select a city, we just select the nearest city without bothering to verify that this choice will result in the globally optimal path.
+- The approach is:
+  - Start from any city
+  - At each step, keep building the tour by moving to the next city where the nearest neighborhood has not been visited before.
+  - Repeat step 2.
+- The greedy algorithm is based on heuristics and there is no proof that the solution will be optimal.
 
 ## Presenting the PageRank algorithm
 ### Problem definition
