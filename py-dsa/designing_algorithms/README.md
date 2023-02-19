@@ -110,7 +110,15 @@ If the number of cities `n` is equal to `10`, then we have `362,880` possible pe
 ### Problem definition
 ### Implement the PageRank algorithm
 
-
-
 ## Understanding linear programming
+- The basic algorithm behind linear programming was developed by George Dantzig.
+- It is used to solve important real-world problems that relate to minimizing or maximizing a variable based on certain constraints. Some examples of these problems are as follows:
+  - Minimizing the time to repair a car at a mechanic shop based on the resources.
+  - Allocating available distributed resources in a distributed computing environment to minimize response times.
+  - Maximizing the profit of a company based on the optimal assignment of resources within the company.
+
 ### Formulating a linear programming problem
+- The condition to use linear programming are as follows:
+  - We should be able to formulate the problem through a set of equations.
+  - The variables used in the equations must be linear.
+
