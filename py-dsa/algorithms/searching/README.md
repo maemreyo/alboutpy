@@ -18,3 +18,12 @@
 
 ### Performance Analysis
 - Binary search is so named because at each iteration, the algorithm bifurcates the data into two parts. If the data has _N_ items, it will take a maximum of _O(logN)_ steps to iterate. This means that the algorithm has an _O(logN)_ runtime.
+
+## Interpolation Search
+- Interpolation search is more sophisticated than binary search. It uses the target value to estimate the position of the element in the sorted array.
+- Assume we want to search for a word in an English dictionary, such as the word _river_. We will use this information to interpolate and start searching for words starting with _r_.
+- Implementation: [Interpolation Search](interpolation.py)
+
+### Performance Analysis
+- If the data is unevenly distributed, the performance of the interpolation search algorithm will be poor.
+- The worst-case performance of this algorithm is `O(N)` and if the data is somewhat reasonably uniform, the best performance is `O(log(logN))`.
