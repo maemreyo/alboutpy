@@ -7,4 +7,3 @@ G.add_edge("Mike", "Annie")
 
 print(list(G.nodes))
 print(list(G.edges))
-
