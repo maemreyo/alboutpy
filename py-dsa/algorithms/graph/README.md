@@ -121,6 +121,32 @@
 - Reference: [Centrality metrics](centrality_metrics.py)
 
 ## Understanding graph traversals
+- To make use of graphs, information needs to be mined from them. Graph traversal is defined as the strategy used to make sure that every vertex and edge is visited in an orderly manner.
+- An effort is made to make sure that each vertex and edge is visited exactly once.
+- There can be two different ways of traveling a graph to search the data in it.
+  - **Breadth-first search (BFS)**
+  - **Depth-first search (DFS)**
+
+### Breadth-first search
+- BFS works best when there is a concept of layers of levels of neighborhoods in the graph.
+- BFS starts from a root vertex and explores the vertices in the neighborhood vertices. It then moves to the next neighborhood level and repeats the process.
+![bfs_example.png](_resources/images/bfs_example.png)
+- How the algorithm works:
+  - It starts from the first node, which is the only node, **Amin**, on level one.
+  - Then, it moves to level two and visits all three nodes **Wasim**, **Nick**, and **Mike** one by one.
+  - After that, it moves to level three and level four, which have only one node each, **Imran** and **Faras**.
+  - Once all the nodes have been visited, they are added to the **Visited** data structure and the iteration stop:
+![bfs_solve_example.png](_resources/images/bfs_solve_example.png)
+
+### Depth-first search
+- DFS is the alternative to BFS, used to search data from a graph. The factor that differentiates DFS from BFS is that after starting from the root vertex, the algorithm goes down as far as possible in each of the unique single paths one by one. 
+- For each path, once it has successfully reached the ultimate depth, it flags all the vertices associated with that path as visited.
+- After completing the path, the algorithm backtracks. If it can find another path from the root node that has yet to be visited, the algorithm repeats the previous process. The algorithm keeps on moving in the new branch until all the branches have been visited.
+- How the DFS works to solve the above example:
+  - The iteration starts from the top node, **Amin**.
+  - Then, it moves to level two, **Wasim**. From there, it moves toward the lower levels until it reaches the end, which is the **Imran** and **Fares** nodes.
+  - After completing the first full branch, it backtracks and then goes to level two to visit **Nick** and **Mike**.
+![dfs_solve_example.png](_resources/images/dfs_solve_example.png)
 
 ## Case study - fraud analytics
 
