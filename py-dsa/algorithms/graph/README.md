@@ -49,9 +49,113 @@
 ![self_and_hyper_edge.png](_resources/images/self_and_hyper_edge.png)
 
 ### Ego-centered networks
+- The direct neighborhood of a particular vertex, `m`, may have enough important information to conduct a conclusive analysis for the node. The ego-center, or ego-net, is based on this idea. An ego-net of a particular vertex, `m`, consists of all the vertices directly connected to `m` plus node `m` itself. The node `m` is called the **ego** and the one-hop neighbors it is connected to are called **alters**.
+- Note that the ego-net represents one degree neighborhood. This concept can be extended to n-degree neighborhoods, which consist of all the vertices n-hop away from the vertex of interest.
+![ego-net.png](_resources/images/ego-net.png)
+
+### Social network analysis
+- **Social network analysis (SNA)** is one of the important applications of graph theory.
+- A network graph analysis is considered social network analysis if the following apply:
+  - The vertices of the graph represent people.
+  - The edges between them represent social relationships between them, such as a friendship, a common hobby, and so on.
+  - The business question that we are trying to answer through graph analysis has some strong social aspect to it.
+- Human behavior is reflected in SNA and should always be kept in mind while working on SNA. By mapping human relationships in a graph, SNA gives good insights into human interactions, which can help us understand their actions.
+- By creating a neighborhood around each individual and analyzing the actions of an individual based on its social relationship, you can produce interesting, and sometimes surprising, insights. The alternative approaches to analyzing individuals in isolation, based on their individual job functions, can only provide limited insights.
+- So, SNA can be used for the following:
+  - Understanding a user's actions on social media platforms, such as Facebook, Twitter, or LinkedIn.
+  - Understanding fraud.
+  - Understanding society's criminal behavior.
 
 ## Introducing network analysis theory
+- We know that interconnected data can be represented as a network. In network analysis theory, we study the details of the methodologies developed to explore and analyze data represented as a network.
+- Let's look at some of the important concepts used in network analysis theory.
+### Understanding the shortest path
+- A path is a sequence of nodes between a start node and an end node, where no node appears twice on the path. A path represents a route between the chosen start and end vertex. It will be set of vertices, `p`, connecting the start vertex with the end vertex. No vertex is repeated in `p`.
+- The length of the path is calculated by counting the constituent edges, the path with the smallest length is called the **shortest path**.
+- There is an algorithm to find the shortest path, **Dijkstra's algorithm**.
+
+### Creating a neighborhood
+- Finding strategies to create a neighborhood around nodes of interest is pivotal for graph algorithms.
+- The various criteria for creating neighborhoods.
+
+#### Triangles
+- In graph theory, finding vertices that are well-connected to each other is important for the purpose of analysis.
+- One technique is to try to identify triangles, which are a subgraph that consists of three nodes directly connected to each other in the network.
+#### Density
+- We call a graph where every vertex is directly connected to every other vertex a **fully connected network**.
+- If we have a fully connected network, `N`, the number of edges in the network can be represented by the following:
+![density_fully_network.png](_resources/images/density_fully_network.png)
+- Density measures the number of observed edges to the maximum number of edges.
+![density_network.png](_resources/images/density_network.png)
+
+### Understanding centrality measures
+- There are different measures for understanding the centrality of a particular vertex in a graph or subgraph.
+- The following centrality measures are widely used in graph analysis:
+  - Degree
+  - Betweenness
+  - Closeness
+  - Eigenvector
+
+#### Degree
+- The number of edges connected to a particular vertex is called its **degree**. It can indicate how well-connected a particular vertex is and its ability to quickly spread a message across a network.
+- Let's consider `aGraph = (𝓥, 𝓔)`, where `𝓥` represents a set of vertices and `𝓔` represents a set of edges. Recall that `aGraph` has `|𝓥|` vertices and `|𝓔|` edges. If we divide the degree of a node by `(|𝓥| -1)`, it is called **degree centrality**
+![degree_centrality.png](_resources/images/degree_centrality.png)
+
+#### Betweenness
+- Betweenness is the measure of centrality in a graph. In the context of social media, it will quantify the probability that a person is part of the communication in a subgroup.
+- For a computer network, betweenness will quantify the negative effect on communication between the graph nodes, in the event of vertex failure.
+- To calculate the betweenness of vertex `a` in a certain `aGraph`. 
+  - We first calculate the shortest path between each pair of vertices. (marked as `A`)
+  - Then, calculate the shortest path that pass through vertex `a`. (marked as `B`)
+  - Finally, we divide `B` by `A`. We have the betweenness of vertex `a`.
+
+#### Fairness and Closeness
+- Let's take `a` graph, `g`. The fairness of vertex `a` in graph `g` is defined as the sum of vertex `a`'s distance from other vertices. Note that the centrality of a particular vertex quantifies its total distance from all the other vertices.
+- The opposite of fairness is closeness.
+
+#### Eigenvector
+- Eigenvector centrality gives scores to all vertices in a graph that measure their importance in the network.
+- The score will be an indicator of the connectivity of a particular node to other important nodes in the whole network.
+
+### Calculating centrality metrics using Python
+
 
 ## Understanding graph traversals
 
 ## Case study - fraud analytics
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
