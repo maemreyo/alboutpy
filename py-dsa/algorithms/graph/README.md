@@ -118,7 +118,7 @@
 - The score will be an indicator of the connectivity of a particular node to other important nodes in the whole network.
 
 ### Calculating centrality metrics using Python
-
+- Reference: [Centrality metrics](centrality_metrics.py)
 
 ## Understanding graph traversals
 
