@@ -234,9 +234,60 @@ The steps involved in the k-means clustering algorithm are as follows:
 
 ### Evaluating the clusters
 
+- The objective of good quality clustering is that the data points that belong to the separate clusters should be
+  differentiable. This implies the following:
+    - The data points that belong to the same cluster should be as similar as possible.
+    - Data points that belong to separate clusters should be as different as possible.
+- Silhouette analysis is one such technique that compares the tightness and separation in the clusters created by the
+  k-means algorithm.
+- The silhouette draws a plot that displays the closeness each point in a particular cluster has with respect to the
+  other points in the neighboring clusters. It associates a number in the range of `[-0, 1]` with each cluster. The
+  following table shows what the figures in this range signify:
+
+| Range       | Meaning                      | Description                                                                                                             |
+|-------------|------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| 0.71 - 1.0  | Excellent                    | This means that the k-means clustering resulted in groups that are quite differentiable from each other.                |
+| 0.51 - 0.70 | Reasonable                   | This means that the k-means clustering resulted in groups that are somewhat differentiable from each other.             |
+| 0.26 - 0.50 | Weal                         | This means that the k-means clustering resulted in grouping, but the quality of the grouping should not be relied upon. |
+| < 0.25      | No clustering has been found | Using the parameters selected and the data used, it was not possible to create grouping using k-means clustering.       |
+
 ### Application of clustering
 
+- Clustering is used wherever we needed to discover the underlying patterns in datasets.
+- In government use cases, clustering can be used for the following:
+    - Crime-hotspot analysis
+    - Demographic social analysis
+- In market research, clustering can be used for the following:
+    - Market segmentation
+    - Targeted advertisements
+    - Customer Categorization
+- **Principal component analysis (PCA)** is also used for generally exploring the data and removing noise from real-time
+  data, such as stock-market trading.
+
 ## Dimensionality reduction
+
+- Each feature in our data corresponds to a dimension in our problem space. Minimizing the number of features to make
+  our problem space simpler is called **dimensionality reduction**. It can be done in one of the following two ways:
+    - **Feature selection**: Selecting a set of features that are important in the context of the problem we are trying
+      to solve.
+    - **Feature aggregation**: Combining two or more features to reduce dimensions using one of the following
+      algorithms:
+        - **PCA**: A linear unsupervised ML algorithm
+        - **Linear discriminant analysis (LDA)**: A linear supervised ML algorithm
+        - **Kernel principal component analysis**: A nonlinear algorithm
+
+### Principal components analysis
+
+- PCA is an unsupervised ML technique that can be used to reduce dimensions using linear transformation. In the
+  following figure, we can see two principal components, `PC1` and `PC2`, which show the shape of the spread of the data
+  points. PC1 and PC2 can be used to summarize the data points with appropriate coefficients:
+
+![pca.png](images/pca.png)
+
+- Limitations
+    - PCA can only be used for continuous variables and is not relevant for category variables.
+    - While aggregating, PCA approximates the components variables; it simplifies the problem of dimensionality at the
+      expense of accuracy. This trade-off should be carefully studied before using PCA.
 
 ## Association rules mining
 
