@@ -213,6 +213,25 @@ The steps involved in the k-means clustering algorithm are as follows:
 
 ### Hierarchical clustering
 
+- K-means clustering uses a top-down approach because we start the algorithm from the most important data points, which
+  are the cluster centers.
+- There is an alternative approach of clustering where, instead of starting from the top, we start the algorithm from
+  the bottom. The bottom in this context is each of the individual data points in the problem space.
+- The solution is to keep on grouping similar data points together as it progresses up toward the cluster centers.
+- This alternative approach is used by hierarchical clustering algorithms.
+
+#### Steps of hierarchical clustering
+
+- The following steps are involved in hierarchical clustering:
+    - **Step 1**: We create a separate cluster for each data point in our problem space. If our problem space consists
+      of 100 data points, then it will start with 100 clusters.
+    - **Step 2**: We group only those points that are closest to each other.
+    - **Step 3**: We check for the stop condition, if the stop condition is not yet satisfied, then we repeat step 2.
+
+- The resulting clustered structure is called a **dendrogram**. In a dendrogram, the height of the vertical lines
+  determines how close the items are.
+  ![dendrogram.png](images/dendrogram.png)
+
 ### Evaluating the clusters
 
 ### Application of clustering
