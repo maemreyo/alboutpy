@@ -439,4 +439,59 @@ The steps involved in the k-means clustering algorithm are as follows:
 
 ## Practical application - Clustering similar tweets together
 
+- Unsupervised ML algorithms can also be applied in real time to cluster similar tweets together. They will do the
+  following:
+    - **Step 1 - Topic Modeling**: Discover various topics from a given set of tweets.
+    - **Step 2 - Clustering**: Associate each of the tweets with one of the discovered topics.
+      ![tweets_practical_app.png](images/tweets_practical_app.png)
+
+### Topic modeling
+
+- Topic Modeling is the process of discovering the concepts in a set of documents that can be used to differentiate
+  them. In the context of tweets, it is about finding which are the most appropriate topics in which a set of tweets can
+  be divided.
+- Latent Dirichlet Allocation is a popular algorithm that is used for topic modeling. Because each of the tweet are
+  short 144-character document usually about a very particular topic, we can write a simpler algorithm for topic
+  modeling purposes. The algorithm is described as following:
+    1. Tokenize tweets
+    2. Preprocess the data. Remove stopwords, numbers, symbols and perform stemming
+    3. Create a Term-Document-Matrix (TDM) for the tweets. Choose the top 200 words that appear most frequently in
+       unique tweets.
+    4. Choose top 10 word that directly or indirectly represent a concept or a topic. For example Fashion, New York,
+       Programming, Accident. These 10 words are now the topics that we have successfully discovered and will become the
+       cluster centers for the tweets.
+
+### Clustering
+
+- Once we have discovered the topics we will choose them as the center of the cluster. Then we can run k-means
+  clustering algorithm that will assign each of the tweets to one of the cluster center.
+
 ## Anomaly - detection algorithms
+
+- The dictionary definition of an anomaly is something that is different, abnormal, peculiar, or not easily classified.
+  It is a deviation from the common rule. In the context of data science, an anomaly is a data point that deviates a lot
+  from the expected pattern. Techniques to find such data points are called anomaly-detection techniques.
+- Some applications of anomaly-detection algorithms:
+    - Credit card fraud
+    - Finding a malignant tumor in a **magnetic resonance imaging (MRI)** scan
+    - Fault prevention in clusters
+    - Impersonation in exams
+    - Accidents on a highway
+
+### Using clustering
+
+- Clustering algorithms such as k-means can be used to group similar data points together. A threshold can be defined
+  and any point beyond that threshold can be classified as an anomaly. The problem with this approach is that the
+  grouping created by k-means clustering may itself be biased because of the presence of anomalous data points and may
+  affect the usefulness and accuracy of the approach.
+
+### Using density-based anomaly detection
+
+- A density-based approach tries to find dense neighborhoods. The **k-nearest neighbors (KNN)** algorithm can be used
+  for this purpose. Abnormalities that are far away from the discovered dense
+  neighborhoods are marked as anomalies.
+
+## Using support vector machines
+
+- The **Support Vector Machine (SVM)** algorithm can be used to learn the boundaries of the data points. Any points
+  beyond those discovered boundaries are identified as anomalies.
