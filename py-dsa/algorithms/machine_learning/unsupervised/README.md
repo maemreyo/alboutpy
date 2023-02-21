@@ -322,7 +322,6 @@ The steps involved in the k-means clustering algorithm are as follows:
 - As market basket analysis can estimate how items are related to each other, it is often used for mass-market retail,
   such as supermarkets, convenience stores, drug stores, and fast-food chains. The advantage of market basket analysis
   is that the results are almost self-explanatory, which means that they are easily understood by the business users.
-  Let's look at a typical superstore. All the unique ite
 
 ### Association rules
 
@@ -436,8 +435,8 @@ The steps involved in the k-means clustering algorithm are as follows:
   the frequent transaction FP-tree, which is an ordered tree. It consists of two steps:
     - Populating the FP-tree
     - Mining frequent patterns
-- Code for using FP-growth
-  
+- Demo for using FP-growth: [FP-growth](fp_growth.py)
+
 ## Practical application - Clustering similar tweets together
 
 ## Anomaly - detection algorithms
