@@ -291,6 +291,153 @@ The steps involved in the k-means clustering algorithm are as follows:
 
 ## Association rules mining
 
+- Patterns in a particular dataset are the treasure that needs to be discovered, understood, and mined for the
+  information they contain. There is an important set of algorithms that try to focus on the pattern analysis in a given
+  dataset. One of the more popular algorithms in this class of algorithm is called the **association rules mining
+  algorithm**, which provides us with the following capabilities:
+    - The ability to measure the frequency of a pattern.
+    - The ability to establish _cause_-and-_effect_ relationship among the patterns.
+    - The ability to quantify the usefulness of patterns by comparing their accuracy to random guessing.
+
+### Examples of use
+
+- Association rules mining is used when we are trying to investigate the cause-and-effect relationships between
+  different variables of a dataset. The following are example questions that it can help to answer:
+    - Which values of humidity, cloud cover, and temperature can lead to rain tomorrow?
+    - What type of insurance claim can indicate fraud?
+    - What combination of medicine may lead to complications for patients?
+
+### Market basket analysis
+
+- Basket analysis is a simpler way of learning recommendations. In basket analysis, our data contains only the
+  information regarding what items were bought together. It does not have any information about the user or whether the
+  user enjoyed individual items. Note that it is much easier to get this data than it is to get ratings data.
+- When collecting the data over a period of time, is called **transnational data**. When association rules analysis is
+  applied to transnational data sets of the shopping carts being used in convenience stores, supermarkets, and fast-food
+  chains, it is called **market basket analysis**. It measures the conditional probability of buying a set of items
+  together, which helps to answer the following questions:
+    - What is the optimal placement of items on the shelf?
+    - How should the items appear in the marketing catalog?
+    - What should be recommended, based on a user's buying patterns?
+- As market basket analysis can estimate how items are related to each other, it is often used for mass-market retail,
+  such as supermarkets, convenience stores, drug stores, and fast-food chains. The advantage of market basket analysis
+  is that the results are almost self-explanatory, which means that they are easily understood by the business users.
+  Let's look at a typical superstore. All the unique ite
+
+### Association rules
+
+- An association rule mathematically describes the relationship items involved in various transactions. It does this by
+  investigating the relationship between two itemsets in the form `X ⇒ Y`, where `X ⊂ π`, `Y ⊂ π`. In addition, `X`
+  and `Y` are
+  non-overlapping itemsets; which means that `X ∩ Y = ∅`.
+- An association rule could be described in the following form: `{helmet,balls} ⇒ {bike}` where `{helmet,ball}` is `X`
+  and `{ball}` is `Y`.
+
+#### Types of rule
+
+- Running associative analysis algorithms will typically result in the generation of a large number of rules from a
+  transaction dataset. Most of them are useless. To pick rules that can result in useful information, we can classify
+  them as one of the following three types:
+    - Trivial
+    - Inexplicable
+    - Actionable
+
+##### Trivial rules
+
+- Among the large numbers of rules generated, many that are derived will be useless as they summarize common knowledge
+  about the business. They are called trivial rules. Even if the confidence in the trivial rules is high, they remain
+  useless and cannot be used for any data-driven decision-making. We can safely ignore all trivial rules.
+- For example
+    - Anyone who jumps from a high-rise building is likely to die.
+    - Working header leads to better scores in exams.
+    - Driving a car over the speed limit on a highway leads to a higher chance of an accident.
+
+##### Inexplicable rules
+
+- Among the rules that are generated after running the association rules algorithm, the ones that have no obvious
+  explanation are the trickiest to use. Note that a rule can only be useful if it can help us discover and understand a
+  new pattern that is expected to eventually lead toward a certain course of action. If that is not the case, and we
+  cannot explain why event X led to event Y, then it is an inexplicable rule, because it's just a mathematical formula
+  that ends up exploring the pointless relationship between two events that are unrelated and independent.
+- For example
+    - People who wear red shirts tend to score better in exams.
+    - Green bicycles are more likely to be stolen.
+    - People who buy pickles end up buying diapers as well.
+
+##### Actionable rules
+
+- Actionable rules are the golden rules we are looking for. They are understood by the business and lead to insights.
+  They can help us to discover the possible causes of an event when presented to an audience familiar with the business
+  domain—for example, actionable rules may suggest the best placement in a store for a particular product based on
+  current buying patterns. They may also suggest which items to place together to maximize their chances of selling as
+  users tend to buy them together.
+- The following are examples of actionable rules and their corresponding actions:
+    - **Rule 1**: Displaying ads to users' social media accounts results in a higher likelihood of sales.
+        - **Actionable item**: Suggest alternative ways of advertising a product.
+    - **Rule 2**: Creating more price points increases the likelihood of sales.
+        - **Actionable item**: One item may be advertised in a sale, while the price of another item is raised.
+
+#### Ranking rules
+
+- Association rules are measured in three ways:
+    - Support (frequency) of items
+    - Confidence
+    - Lift
+
+##### Support
+
+- The support measure is a number that quantifies how frequent the pattern we are looking for is in our dataset. It is
+  calculated by first counting the number of occurrences of our pattern of interest and then dividing it by the total
+  number of all the transactions.
+  ![support_measure.png](images/support_measure.png)
+
+##### Confidence
+
+- The confidence is a number that quantifies how strongly we can associate the left side `(X)` with the right side `(Y)`
+  by
+  calculating the conditional probability. It calculates the probability that event `X` will lead toward the event `Y`,
+  given that event `X` occurred.
+- Mathematically, consider the rule `X ⇒ Y`.
+  ![confidence_measure.png](images/confidence_measure.png)
+
+##### Lift
+
+- Another way to estimate the quality of a rule is by calculating the lift. The lift returns a number that quantifies
+  how much improvement has been achieved by a rule at predicting the result compared to just assuming the result at the
+  right-hand side of the equation. If the X and Y itemsets were independent, then the lift is calculated as follows:
+  ![lift_measure.png](images/lift_measure.png)
+
+### Algorithms for association analysis
+
+- In this section, we will explore the following two algorithms that can be used for association analysis:
+    - **Apriori Algorithm**
+    - **FP-growth algorithm**
+
+#### Apriori Algorithm
+
+- The apriori algorithm is an iterative and multiphase algorithm used to generate association rules. It is based on a
+  generation-and-test approach.
+- Before executing the apriori algorithm, we need to define two variables: `support_threshold`
+  and `confidence_threshold`.
+- The algorithm consists of the following two phases:
+    - **Candidate-generation phase**: It generates the candidate itemsets, which contains sets of all itemsets
+      above `support_threshold`.
+    - **Filter phase**: It filters out all rules below the expected `confidence_threshold`.
+- After filtering, the resulting rules are the answer.
+- Limitations:
+    - The major bottleneck in the apriori algorithm is the generation of candidate rules in Phase 1—for
+      example,`π = {item 1 , item 2 , . . . , item m }` can produce `2^m` possible itemsets. Because of its multiphase
+      design, it first generates these itemsets and then works toward finding the frequent itemsets. This limitation is
+      a huge performance bottleneck and makes the apriori algorithm unsuitable for larger items.
+
+#### FP-growth algorithm
+
+- The **frequent pattern growth (FP-growth)** algorithm is an improvement on the apriori algorithm. It starts by showing
+  the frequent transaction FP-tree, which is an ordered tree. It consists of two steps:
+    - Populating the FP-tree
+    - Mining frequent patterns
+- Code for using FP-growth
+  
 ## Practical application - Clustering similar tweets together
 
 ## Anomaly - detection algorithms
