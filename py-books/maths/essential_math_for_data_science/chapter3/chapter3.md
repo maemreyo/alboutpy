@@ -84,24 +84,77 @@ the population.
     - The "tails" are the least likely outcomes and approach zero infinitely but never touch zero.
     - It resembles a lot of phenomena in nature and daily life, and even generalizes non-normal problems because of the
       central limit theorem.
+- **The probability density function (PDF)**
+    - The standard deviation plays an important role in the normal distribution, because it defines how "spread out" it
+      is.
+    - It is actually one of the parameters alongside the mean. The _PDF_ that creates the normal distribution is as
+      follows:
+      ![pdf.png](resouces/pdf.png)
+- **The cumulative distribution function (CDF)**
 
 #### The Inverse CDF
 
 #### Z-scores
 
+- It is common to rescale a normal distribution so that the mean is 0 and the standard deviation is 1, which is known as
+  the standard normal distribution. This makes it easy to compare the spread of one normal distribution to another
+  normal distribution, even if they have different means and variances.
+
+- Of particular importance with the standard normal distribution is it expresses all x-values in terms of standard
+  deviations, known as Z-scores. Turning an x-value into a Z-score uses a basic scaling formula:
+
+> z = (x - μ) / σ
+> where μ is the mean, σ is the standard deviation
+
 ## Inferential Statistics
 
 ### The Central Limit Theorem
 
+The _central limit theorem_, which states that interesting things happen when we take large enough samples of a
+population, calculate the mean of each, and plot them as a distribution:
+
+1. The mean of the sample means is equal to the population mean.
+2. If the population is normal, then the sample means will be normal.
+3. If the population is not normal, then the sample size is greater than 30, the sample means will still roughly
+   form a
+   normal distribution.
+4. The standard deviation of the sample means equals the population standard deviation divided by the square root
+   of `n`:
+
+> sample standard deviation = population standard deviation / sqrt(sample size)
+
 ### Confidence Intervals
+
+- A _confidence interval_ is a range calculation showing how confidently we believe a sample mean (or other parameter)
+  falls in a range for the population means.
+- Our margin of error formula, the larger `n` becomes, the narrower our confidence interval becomes. This makes sense
+  because if we have a larger sample, we are more confidence in the population mean falling in a smaller range, hence
+  why it's called a confidence interval.
 
 ### Understanding P-values
 
+- The probability is what we call the _p-value_, the probability of something occurring by chance rather than because of
+  a hypothesized explanation.
+
 ### Hypothesis Testing
+
+#### One-Tailed Test
+
+When we approach the _one-tailed test_, we typically frame our null and alternative hypotheses using inequalities. We
+hypothesize around the population mean and say that it either is greater than/equal to the null hypothesis `H0` or less
+than the alternative hypothesis `H1`.
+
+#### Two-Tailed Test
+
+To do a _two-tailed test_, we frame our null and alternative hypothesis in an "equal" or "not equal" structure.
 
 ## The T-Distribution: Dealing with Small Samples
 
-## Big Data Considerations and the Texas Sharpshooter Fallacy
+Whether we are calculating confidence intervals or doing hypothesis testing, if we have 30 or fewer items in a sample we
+would opt to use a T-distribution instead of a normal distribution. The T-distribution is like a normal distribution but
+has fatter tails to reflect more variance and uncertainty.
+
+## Big Data Considerations and the `Texas Sharpshooter Fallacy`
 
 ===================================== <br />
 **_Ref: [Code Demo](chapter3.py)_**
